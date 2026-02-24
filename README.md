@@ -43,7 +43,7 @@ O projeto segue o padrão de arquitetura em camadas, dividido em:
 ## ▶️ Como Executar
 1. Clone o repositório:
    ```
-   git clone https://github.com/seu-usuario/taskmanager.git
+   git clone https://github.com/seu-usuario/TaskManager.git
    ```
 2. Abra o projeto na sua IDE
 3. Execute a classe ```Main.java```
