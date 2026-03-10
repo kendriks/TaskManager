@@ -1,8 +1,6 @@
 package br.com.taskmanager.controller;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
 import br.com.taskmanager.model.Task;
@@ -12,14 +10,12 @@ public class TaskController {
     private TaskService service;
     private Scanner input = new Scanner(System.in);
 
-    private List<Task> tasks = new ArrayList<>(); 
-
     public TaskController(TaskService service) {
         this.service = service;
     }
 
     private void exibirMensagemErro(String mensagem) {
-        System.out.println("{\"erro\": \"" + mensagem + "\"}");
+        System.out.println("erro: " + mensagem);
     }
 
     public void criarTarefa() {
@@ -35,7 +31,7 @@ public class TaskController {
 
             Task tarefa = service.criarTarefa(null, titulo, descricao, prazo);
 
-            System.out.println("{\"mensagem\": \"Tarefa criada com sucesso!\", \"id\": " + tarefa.getId() + "}");
+            System.out.println("Tarefa criada com sucesso! id: " + tarefa.getId());
 
         } catch (Exception e) {
             exibirMensagemErro(e.getMessage());
@@ -56,7 +52,7 @@ public class TaskController {
     public void removerTask(Long id) {
         try {
             service.removerTarefa(id);
-            System.out.println("{\"mensagem\": \"Tarefa removida com sucesso!\"}");
+            System.out.println("Tarefa removida com sucesso!");
         } catch (Exception e) {
             exibirMensagemErro(e.getMessage());
         }
@@ -77,7 +73,8 @@ public class TaskController {
             LocalDate prazo = LocalDate.parse(input.nextLine());
 
             service.atualizarTarefa(id, titulo, descricao, prazo);
-            System.out.println("{\"mensagem\": \"Tarefa atualizada com sucesso!\"}");
+            System.out.println("Tarefa atualizada com sucesso!");
+
         } catch (Exception e) {
             exibirMensagemErro(e.getMessage());
         }
